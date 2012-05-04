@@ -1,0 +1,16 @@
+; $Id: horizontal_accordion.info,v 1.1.2.1 2009/11/19 00:50:20 lefnire Exp $
+name = Accordian Mini Panels -- Horizontal
+description = JQuery Horizontal Accordion for mini panels
+project = horizontal_accordion
+package = "Panels style plugins"
+dependencies[] = panels
+dependencies[] = jquery_ui
+dependencies[] = textimage
+core = 6.x
+
+; Information added by drupal.org packaging script on 2009-11-19
+version = "6.x-1.1"
+core = "6.x"
+project = "panels_accordion"
+datestamp = "1258656704"
+

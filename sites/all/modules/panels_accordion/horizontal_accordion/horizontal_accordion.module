@@ -1,0 +1,167 @@
+<?php
+// $Id
+
+/**
+ * implementation of hook_panels_styles
+ */
+
+function horizontal_accordion_panels_styles() {
+  return array(
+    'horizontal_accordion' => array(
+      'title' => t('Horizontal Accordian'),
+      'description' => t('Apply accordion styles to multiple panes'),
+      'render panel' => 'horizontal_accordion_style_render_panel',
+      'render pane' => 'horizontal_accordion_style_render_pane',
+      'settings form' => 'horizontal_accordion_style_settings_form',
+    ),
+  );
+}
+
+/**
+ * Settings form for this style
+ */
+function horizontal_accordion_style_settings_form($style_settings) {
+  
+  module_load_include('inc', 'textimage', 'textimage_admin');
+  $presets = textimage_get_presets();
+  if(empty($presets)){
+    $form['error'] = array(
+      '#type' => 'markup',
+      '#value' => '<p class="error">Horizonal Accordion style requires a Textimage preset in order to work.'.
+      			  '<a href="/admin/settings/textimage/preset/new">Please configure one here.</a></p><p>'.
+                  '(Note: You will need to upload a .ttf font to /sites/all/modules/textimage/fonts, if in doubt '.
+                  'use /sites/all/modules/panels_accordion/horizontal_accordion/arial.ttf</p>',
+    );
+    return $form;
+  }
+
+  $preset_options = array();
+  foreach($presets as $preset)
+    $preset_options[$preset->pid] = $preset->name;
+  $form['preset'] = array(
+    '#type' => 'radios',
+    '#title' => t('Textimage preset'),
+    '#options' => $preset_options,
+    '#default_value' => isset($style_settings['preset']) ? $style_settings['preset'] : $style_settings['preset'] = 1,
+    '#description' => t('Select a text-to-image preset <a href="/admin/settings/textimage/preset">(configure them here).</a>'),
+  );
+  $form['speed'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Speed (milliseconds)'),
+    '#default_value' => isset($style_settings['speed']) ? $style_settings['speed'] : $style_settings['speed'] = 2000,
+    '#description' => t('Speed of the accordion'),
+  );
+  $form['firstopen'] = array(
+    '#type' => 'textfield',
+    '#title' => t('First Open'),
+    '#default_value' => isset($style_settings['firstopen']) ? $style_settings['firstopen'] : $style_settings['firstopen'] = 0,
+    '#description' => t('Default pane open when the dom is loaded. it is a zero-based index (using :eq(yourindex)), so firstopen: 0 will load with your first container open, firstopen:1 will open the second pane, etc...'),
+  );
+   $form['easing'] = array(
+    '#type' => 'radios',
+    '#title' => t('Easing'),
+    '#options' => array('none' => t('none'), 'easeInOutQuint' => t('easeInOutQuint')),
+    '#default_value' => isset($style_settings['easing']) ? $style_settings['easing'] : $style_settings['easing'] = 'none',
+    '#description' => t("Easing effect (note: doesn't work right now, need the easing plugin"),
+  );
+
+  return $form;
+}
+
+/**
+ * Panel style render callback.
+ */
+function theme_horizontal_accordion_style_render_panel($display, $panel_id, $panes, $settings) {
+//  $style = panels_get_style('accordion');
+
+  // @@TODO: Not working! (see http://drupal.org/node/613444#comment-2236190)
+  // If 2 no-style columns contain 2 accordion-style mini-panels, this works (you get horizontal_accordion-mini_1, mini_2, etc). 
+  // But if you have 2 *accordion-style columns* (with whatever content), you get horizontal_accordion-0, horizontal_accordion-0 -- panel_id never increments... WHY!
+//  $accordion_id = 'horizontal_accordion-'. $panel_id; 
+
+  static $accordion_id = 0;
+  $div_id = 'horizontal_accordion-'. ((is_numeric($panel_id)) ? $accordion_id++ : $panel_id);
+
+  $options[] = 'contentclass:"panel-pane"';
+  foreach($settings as $key=>$val){
+    if($key=='easing' && $val=='none')
+      continue; //not implemented yet
+  	// if it's a string, convert slide to 'slide' (necessary as per http://docs.jquery.com/UI/Accordion)
+  	$val = is_numeric($val) ? $val: "'$val'" ;
+  	$options[] = $key. ':' .$val;
+  }
+  $options = '{' .implode(',', $options). '}';
+  // if it's 'true'/'false', convert it back to true/false
+  $options = str_replace(array("'false'", "'true'"), array("false", "true"), $options); 
+  
+  $path = drupal_get_path('module','horizontal_accordion');
+  drupal_add_js($path.'/horizontal_accordianv1.1/jquery.haccordion.js');
+  // Include our own version, had to modify original because it uses .content, which breaks node-views inside haccordion panes
+  drupal_add_css($path.'/horizontal_accordion.css');
+  drupal_set_html_head('<style>#'.$div_id.'{overflow:hidden;width:100%;height:200px;}</style>');
+  drupal_add_js('
+  if (Drupal.jsEnabled) {
+    $(document).ready(function(){ 
+  	  $(\'div#'. $div_id .'\').haccordion(' .$options. ');
+    });
+   }', 'inline');
+
+  
+  // Render the items of the accordion.
+    $output .= '<div id="'.$div_id.'">';
+    $output .= '<div class="haccordion">';
+  foreach ($panes as $pane_id => $content) {
+//    @@TODO: I don't think I'm doing this right, shouldn't 'style' come with the pane automatically?
+    $display->content[$pane_id]->style['style'] = 'horizontal_accordion';
+    $display->content[$pane_id]->style['settings'] = $settings;
+    
+    $output .= panels_render_pane($content, $display->content[$pane_id], $display);
+  }
+  $output .= '</div></div>';
+  return $output;
+}
+
+function theme_horizontal_accordion_style_render_pane($content, $pane, $display) {
+  if (!empty($content->content)) {
+    $idstr = $classstr = '';
+    if (!empty($content->css_id)) {
+      $idstr = ' id="' . $content->css_id . '"';
+    }
+    if (!empty($content->css_class)) {
+      $classstr = ' ' . $content->css_class;
+    }
+    
+    $output .= '<div class="header"><a href="#">';
+    if (!empty($content->title)) {
+      $output .= theme('textimage_image', $pane->style['settings']['preset'], $content->title);
+    }
+    $output .= "</a></div>\n";
+
+    $output .= "<div class=\"content panel-pane$classstr\"$idstr>\n"; 
+    
+    if (user_access('view pane admin links') && !empty($content->admin_links)) {
+      $output .= "<div class=\"admin-links panel-hide\">" . theme('links', $content->admin_links) . "</div>\n";
+    }
+    
+    if (!empty($content->feeds)) {
+      $output .= "<div class=\"feed\">" . implode(' ', $content->feeds) . "</div>\n";
+    }
+
+    $output .= "<div class=\"pane-content\">$content->content</div>\n";
+
+    if (!empty($content->links)) {
+      $output .= "<div class=\"links\">" . theme('links', $content->links) . "</div>\n";
+    }
+
+
+    if (!empty($content->more)) {
+      if (empty($content->more['title'])) {
+        $content->more['title'] = t('more');
+      }
+      $output .= "<div class=\"more-link\">" . l($content->more['title'], $content->more['href']) . "</div>\n";
+    }
+
+    $output .= "</div>\n";
+    return $output;
+  }
+}

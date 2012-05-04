@@ -1,0 +1,3 @@
+<?php
+
+include_once('recent_stories.features.inc');

@@ -1,0 +1,39 @@
+name = Holy Grail Example Sub-Theme Style A
+description = An example sub-theme using the Holy Grail base.
+
+core         = 6.x
+base theme   = holygrail
+engine       = phptemplate
+
+;------ default drupal styles we don't want ------
+stylesheets[all][]    = css/holygrail-a.css
+
+;------ regions ------
+regions[header_top]    	  = header top
+regions[header_main]      = header main content
+regions[header_secondary] = secondary header content
+regions[header_tertiary]  = tertiary header content
+regions[left]             = first sidebar
+regions[right]            = second sidebar
+regions[content_top]      = content top
+regions[content_bottom]   = content bottom
+regions[footer]           = footer
+regions[closure_region]   = closure
+
+;------ features ------
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = mission
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = search
+features[] = favicon
+features[] = primary_links
+features[] = secondary_links
+; Information added by drupal.org packaging script on 2011-05-04
+version = "6.x-1.0-rc1"
+core = "6.x"
+project = "holygrail"
+datestamp = "1304469745"
+

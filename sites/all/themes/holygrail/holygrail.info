@@ -1,0 +1,62 @@
+name        = Holy Grail Theme
+description = A flexible base theme based on some cool CSS ideas.
+core        = 6.x
+engine      = phptemplate
+
+;------ default drupal styles we don't want ------
+stylesheets[all][]    = defaults.css
+stylesheets[all][]    = book.css
+stylesheets[all][]    = node.css
+stylesheets[all][]    = system-menus.css
+stylesheets[all][]    = user.css
+stylesheets[all][]    = content-module.css
+stylesheets[all][]    = admin.css
+
+;------ styles ------
+stylesheets[all][]    = css/reset.css
+stylesheets[all][]    = css/system.css
+stylesheets[all][]    = css/holygrail.css
+stylesheets[all][]    = css/typography.css
+stylesheets[all][]    = css/tabs.css
+stylesheets[all][]    = css/tables.css
+stylesheets[all][]    = css/comments.css
+stylesheets[all][]    = css/forms.css
+stylesheets[all][]    = css/taxonomy.css
+
+;------ styles, additional ------
+stylesheets[print][] = css/print.css
+;conditional-stylesheets[if IE][all][] = css/ie.css
+conditional-stylesheets[if lte IE 7][all][] = css/ie-7.css
+
+;------ scripts ------
+;scripts[] = js/holygrail.js
+
+;------ regions ------
+regions[header_top]    	  = header top
+regions[header_main]      = header main content
+regions[header_secondary] = secondary header content
+regions[header_tertiary]  = tertiary header content
+regions[left]             = first sidebar
+regions[right]            = second sidebar
+regions[content_top]      = content top
+regions[content_bottom]   = content bottom
+regions[footer]           = footer
+regions[closure_region]   = closure
+
+;------ features ------
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = mission
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = search
+features[] = favicon
+features[] = primary_links
+features[] = secondary_links
+; Information added by drupal.org packaging script on 2011-05-04
+version = "6.x-1.0-rc1"
+core = "6.x"
+project = "holygrail"
+datestamp = "1304469745"
+

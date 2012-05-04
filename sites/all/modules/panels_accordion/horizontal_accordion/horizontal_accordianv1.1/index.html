@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<title>hAccordion</title>
+	
+	<!-- jQuery Core -->
+	<script type="text/javascript" src="../../jquery/jquery-1.3.2.min.js"></script>
+	<!-- jQuery Easing, Necessary if you want to add the "easing:" param -->
+	<script type="text/javascript" src="../../jqueryeasing/jquery.easing.min.js"></script>
+	
+	<!-- jQuery HAccordion -->
+	<script type="text/javascript" src="jquery.haccordion.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			
+			/*
+			 * Assign haccordion to a containing element,
+			 * make sure the contents within follow a similar pattern: e.g.
+			 * 
+			 * <div id="YOUR_CONTAINER_THAT_YOU_APPLY_PLUGIN_TO">
+			 *   <div class="haccordion">
+			 *
+			 *     <!-- Begin Accordion Screen 1 -->
+			 *     <div class="header"><a href="#">Your Link</a></div>
+			 *     <div class="content"></div>
+			 *     <!-- End Accordion Screen 1 (repeat this for more screens -->
+			 *
+			 */
+			 
+			$('#container').haccordion({
+				speed: 2000,
+				easing: 'easeInOutQuint',
+				firstopen: 0				
+			});
+		
+		});
+	</script>
+	<link rel="stylesheet" href="jquery.haccordion.css" type="text/css" charset="utf-8"/>
+	
+	
+	<style type="text/css">
+	/* Ignore this reset section */
+	* {margin:0;padding:0;}
+	html, body {
+		height:100%;
+	}
+	/* End Reset */
+	
+	
+	
+	
+	/* Example Outer Container (that you must set widths and heights for) */
+	#container {
+		margin:0 auto;
+		width:100%; 
+		height:100%;
+		overflow:hidden;
+		background-color:#0f0;
+	}
+	
+	
+	</style>
+</head>
+<body>
+	
+	
+	
+	
+	
+	<div id="container">
+		<div class="haccordion">
+			
+			<div class="header"><a href="http://www.goingon.com">Home</a></div>
+			<div class="content">
+				<p>This is a sample of content for Content3 with a large text, testing, testing, testing, 
+					testing, testing, testing, testing, testing, testing, testing, testing, testing, testing
+				</p>
+			</div>
+			
+			<div class="header"><a href="#">Home</a></div>
+			<div class="content">
+				<p>This is a sample of content for Content3 with a large text, testing, testing, testing, 
+					testing, testing, testing, testing, testing, testing, testing, testing, testing, testing
+				</p>
+			</div>
+		
+			<div class="header"><a href="#">Link2</a></div>
+			<div class="content">
+				<p>This is a sample of content for Content3 with a large text, testing, testing, testing, 
+					testing, testing, testing, testing, testing, testing, testing, testing, testing, testing
+				</p>
+			</div>
+			
+			<div class="header"><a href="#">Link2</a></div>
+			<div class="content">
+				<p>
+					expansion complete!
+				</p>
+			</div>
+		
+			<div class="header"><a href="#">Link3</a></div>
+			<div class="content">
+				<p>This is a sample of content for Content3 with a large text, testing, testing, testing, 
+					testing, testing, testing, testing, testing, testing, testing, testing, testing, testing
+				</p>
+			</div>
+		
+			<div class="header"><a href="#">Link4</a></div>
+			<div class="content">
+				<p>This is a sample of content for Content3 with a large text, testing, testing, testing, 
+					testing, testing, testing, testing, testing, testing, testing, testing, testing, testing
+				</p>
+			</div>
+		
+			<div class="header"><a href="#">Link5</a></div>
+			<div class="content">
+				<p>This is a sample of content for Content3 with a large text, testing, testing, testing, 
+					testing, testing, testing, testing, testing, testing, testing, testing, testing, testing
+				</p>
+			</div>
+
+		</div> <!-- /.haccordion_1 -->
+	</div> <!-- /#container -->
+
+
+
+
+
+
+<!-- This is another Accordion example -->
+
+
+<!-- 	<div id="container2">	
+		<div class="haccordion">
+			
+			<div class="header"><span>Home<span></div>
+			<div class="content">
+				<p>This is a sample of content for Content3 with a large text, testing, testing, testing, 
+					testing, testing, testing, testing, testing, testing, testing, testing, testing, testing
+				</p>
+			</div>
+			
+			<div class="header">*2</div>
+			<div class="content">
+				<p>This is a sample of content for Content3 with a large text, testing, testing, testing, 
+					testing, testing, testing, testing, testing, testing, testing, testing, testing, testing
+				</p>
+			</div>
+			
+			<div class="header">*3</div>
+			<div class="content">
+				<p>This is a sample of content for Content3 with a large text, testing, testing, testing, 
+					testing, testing, testing, testing, testing, testing, testing, testing, testing, testing
+				</p>
+			</div>
+			
+		</div> 	
+	</div>
+-->
+
+</body>
+</html>

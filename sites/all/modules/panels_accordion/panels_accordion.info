@@ -1,0 +1,13 @@
+; $Id: panels_accordion.info,v 1.2.2.2 2009/10/20 17:15:53 lefnire Exp $
+name = Accordian Mini Panels
+description = JQuery Accordion that can be used for Mini Panels.
+package = "Panels style plugins"
+dependencies[] = panels
+dependencies[] = jquery_ui
+core = 6.x
+; Information added by drupal.org packaging script on 2009-11-19
+version = "6.x-1.1"
+core = "6.x"
+project = "panels_accordion"
+datestamp = "1258656704"
+

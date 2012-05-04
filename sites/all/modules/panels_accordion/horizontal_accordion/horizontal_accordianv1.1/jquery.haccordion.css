@@ -1,0 +1,34 @@
+.haccordion {
+  float:left;
+  width:100%;
+  height:100%;
+}
+.haccordion .header, .haccordion .content {
+  float: right;
+  height:100%;
+}
+
+.haccordion .header {
+  background-color:#f00;
+  cursor:pointer;
+  width:30px; /* Set my width! */
+  margin:0 !important; /* If you want to set margin, make an inner-wrapper */
+  padding:0 !important; /* If you want to set padding, make an inner-wrapper */
+  text-indent:-9999px; /*  Hide text for vertical text images */
+}
+	.haccordion .header a {
+	  display:block;
+	  width:100%;
+	  height:100%;	
+	}
+	/* TODO: This block would be for making text go vertical.. /*
+	/*.haccordion_1 .header span {
+	  -webkit-transform: rotate(90deg);
+	  -moz-transform: rotate(90deg);
+	  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+	}*/
+.haccordion .content {
+  overflow: auto;
+  width:0px;
+  background-color:#00f;
+}

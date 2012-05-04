@@ -1,0 +1,457 @@
+body {
+  font: 14px/1.571em 'helvetica neue', helvetica, arial, sans-serif;
+  }
+
+h1 {
+  font-size: 1.8em;
+  line-height:1.083em;
+  }
+
+h2 {
+  font-size: 1.3em;
+  line-height:1.083em;
+  }
+
+h2.title {
+  margin-bottom: 1.5em;
+  }
+
+h2.with-tabs,
+h1#site-title.with-slogan,
+h2#site-title.with-slogan {
+  margin-bottom: .1em;
+  }
+
+h3 {
+  font-size: 1.125em;
+  font-weight: 300;
+  line-height: 1.167em;
+  margin-bottom: 0.111em;
+  }
+
+h4 {
+  font-size: 1em;
+  }
+
+#site-title {
+  font-size: 2.1em;
+  font-weight: 400;
+  }
+
+#slogan {
+  font-style: italic;
+  margin-top: 0;
+  }
+
+/* The site logo, rather than an uploaded image is attached to the h1/h2 tag in the header (and, if
+using a slogan, the div around the site title and slogan) */
+
+#site-title a,
+#site-meta {
+  background: url(../images/sample-logo.png) no-repeat 0 0 transparent;
+  padding-left: 130px;
+  min-height:111px;
+  display:block;
+  }
+
+/* If a slogan is also used, it appears under the site title, and the logo image moves
+to the surrounding div. Adding an image file as logo removes the image from the h1/h2 */
+
+#site-meta #site-title,
+#site-meta.with-logo {
+  background: transparent;
+  min-height: 0;
+  }
+
+#site-meta.with-logo img {
+  float: left;
+  margin-right: 10px;
+  }
+
+p,
+div.messages,
+#content-main .views-row,
+.node .content ul,
+.node .content ol {
+  margin: 0 0 1.53em 0;
+  }
+
+p.copyright {
+  color: #76797C;
+  font-size: 11px;
+  line-height: 29px;
+  margin: 4px auto 0 auto;
+  clear:both;
+  text-align:center;
+  min-height: .5em;
+  }
+
+.form-required {
+  color: #d70404 !important;
+  }
+
+.submitted {
+  font-size: .9em;
+  }
+
+
+/* LINKS */
+
+a, a:visited {
+  text-decoration: none;
+  color: #005C9C;
+  }
+
+p.copyright a, p.copyright a:visited {
+  font-style: normal;
+  text-decoration: none;
+  color: #76797C;
+  }
+
+p.copyright a:hover {
+  text-decoration: underline;
+  color: #000;
+  }
+
+#primary-navigation a,
+#primary-navigation a:visited {
+  color: #fff;
+  font-weight: bold;
+  -moz-text-shadow:0 1px 1px #666;
+  -webkit-text-shadow:0 1px 1px #666;
+  text-shadow:0 1px 1px #666;
+  }
+
+ul.admin li a,
+ul.admin li a:visited {
+  color: #97c797 !important;
+  }
+
+ul.admin li:hover a {
+  color: #228822 !important;
+  background-color: transparent !important;
+  }
+
+div.views-admin-links li a, div.views-admin-links li a:visited {
+  color: #fff;
+  padding: 0 2px;
+  }
+
+
+/*LISTS*/
+
+.node-inner ul li {
+  list-style: disc inside;
+  margin-bottom: .8em;
+  }
+
+.node-inner ul ul,
+.node-inner ol ul{
+  padding-left: 3.5em;
+  padding-top: .8em;
+  }
+
+ol {
+  padding-left:3em;
+  }
+
+ol li {
+  list-style: decimal outside;
+  }
+
+.node-inner .content ul {
+  padding-left: 2em;
+  }
+
+.node-inner .content ul li {
+  list-style: disc outside;
+  padding:0 0 0 3px;
+  }
+
+.node-inner .terms ul,
+.node-inner .content ul.links,
+#content .biblio-entry ul.links {
+  padding-left: 0;
+  margin-top:0;
+  }
+
+.terms ul li, .terms ul li a {
+  padding: 0;
+  }
+
+#content .node div.links ul li ul {
+  margin:0;
+  }
+
+.node-inner .content ul li li {
+  list-style: circle outside;
+  padding:0 0 0 3px;
+  }
+
+.node-inner .content li ol li {
+	list-style-type: upper-roman;
+	}
+
+.node-inner .content li li ol li,
+.node-inner .content li li li ol li,
+.node-inner .content li li li li ol li {
+	list-style-type: lower-alpha;
+	}
+
+.node-inner .content li li ul li,
+.node-inner .content li li li ul li,
+.node-inner .content li li li li ul li {
+	list-style-type: circle;
+	}
+
+.node-inner .content ol li ol {
+	margin-bottom: 2.5em;
+	}
+
+.node-inner .content li p {
+	margin-top: 1.5em;
+	margin-bottom: 0
+	}
+
+.node-inner .content li p:first-child {
+	margin-top: 0
+	}
+
+#navbar li,
+#header-top li,
+.views-admin-links li,
+ul.inline li {
+  display:inline;
+  }
+
+ul.links li {
+  padding:0;
+  }
+
+ul.float-left li {
+  float: left;
+  margin-right: 1em;
+  }
+
+ul.float-left li a, ul.float-left li a:visited {
+  display:block;
+  }
+
+.node div.links .links li {
+  float: left;
+  font-size: 11px !important;
+  }
+
+.node .node-inner .links li a {
+  padding: 1px 15px;
+  min-height: 16px;
+  font-style: normal !important;
+  text-transform: uppercase;
+  font-size: 10px;
+  }
+
+.admin-links {
+  height: 18px;
+  float:right;
+  width: 14px;
+  padding: 0 0 5px 5px;
+  z-index:1;
+  background: url('../images/admin-link.png') 0 4px no-repeat transparent;
+  padding: 1px 0 10px 20px !important;
+  height: 16px;
+  font-size: 11px;
+  text-align: left;
+  text-indent: -999em;
+  display:none;
+  position:relative;
+  cursor: pointer;
+  }
+
+.admin-links ul.links {
+  position: absolute;
+  display:none;
+  background: #fff;
+  top: 17px;
+  right: 0;
+  -moz-box-shadow: 0 7px 15px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 7px 15px rgba(0,0,0,0.5);
+  box-shadow: 0 7px 15px rgba(0,0,0,0.5);
+  }
+
+.node:hover .admin-links {
+  display:block;
+  -webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	-webkit-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+  }
+
+.admin-links:hover ul.links {
+  display:block;
+  }
+
+.admin-links ul.links li {
+  display:block;
+  text-indent: 0;
+  white-space: nowrap;
+  }
+
+.admin-links ul.links li a {
+  display:block;
+  padding: 1px 6px;
+  }
+
+.admin-links ul.links li a:hover {
+  background: #356df6;
+  color: #fff;
+  }
+
+.node-inner {
+  padding: 3px;
+  }
+
+.admin-links-trail {
+  border:1px solid #356df6;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  }
+
+.admin-links-trail .node-inner {
+  padding: 2px;
+  }
+
+
+.block ul {
+  padding-left: 0;
+  }
+
+ul.menu li,
+li.leaf, li.collapsed,
+ul.menu li.leaf,
+ul.menu li.collapsed {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  }
+
+.item-list ul.pager {
+  padding-top: 1em;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  }
+
+.item-list ul.pager li {
+  margin: 0;
+  padding: .3em;
+  display:inline;
+  }
+
+.item-list ul.pager li a,
+.item-list ul.pager li a.active {
+  background: transparent;
+  text-decoration: none;
+  }
+
+.item-list ul.pager li.pager-current {
+  background: #5ba4d9;
+  color: #fff;
+  }
+
+dt {
+  font-weight: bold;
+  }
+
+dd {
+  margin-bottom: .5em;
+  }
+
+dd.meta {
+  color:#767676;
+  margin-bottom: 0;
+  }
+
+.views-admin-links ul.links li {
+  float:left;
+  padding: 0;
+  margin: 0 1px;
+  font-size: 10px;
+  }
+
+.views-admin-links ul.links li:before {
+  content: '[';
+  }
+
+.views-admin-links ul.links li:after {
+  content: ']';
+  }
+
+li.scholar_publications_export {
+  margin-top: 1px;
+  }
+
+.item-list {
+  clear:both;
+  }
+
+/* PAGER */
+
+ul.pager {
+  padding-top: 1em;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  }
+
+ul.pager li {
+  margin: 0;
+  padding: .3em;
+  display:inline;
+  }
+
+ul.pager li.pager-current {
+  background: #5ba4d9;
+  color: #fff;
+  }
+
+
+/* VIEWS ADMIN LINKS */
+
+div.views-admin-links {
+  padding: 1px 6px;
+  background: #333;
+  float:right;
+  position:relative;
+  width: 15px;
+  height: 15px;
+  }
+
+
+/* OTHER */
+
+legend {
+  margin-bottom: .5em;
+  }
+
+
+/* DELETE, EDIT BUTTONS */
+
+ul.admin {
+  background: #fff;
+  line-height: 12px !important;
+  font-size: 10px !important;
+  margin: 0 !important;
+  padding: 0 1px 0 0 !important;
+  }
+
+ul.admin li {
+  margin: 0 !important;
+  }
+
+ul.admin li a, ul.admin li a:visited {
+  padding: 2px !important;
+  }
+
+ul.admin li a:hover {
+  text-decoration: underline;
+  }

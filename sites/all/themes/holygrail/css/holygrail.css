@@ -1,0 +1,242 @@
+html,
+body {
+  background: #E0E0E0;
+  min-width: 950px;      /* 2x (LC fullwidth + CC padding) + RC fullwidth */
+  margin: 0;
+  padding: 0;
+  }
+
+.inline {
+  display:inline;
+  }
+
+img {
+  border:none;
+  }
+
+.wrap {
+  width: auto;  /* add specific width to page view here */
+  margin: 0 auto;
+  }
+
+/* The following is the 'Holy Grail' scheme for flexible one, two, or three column layouts */
+
+.hg-container {
+  padding-left: 245px;   /* sidebar-first fullwidth, including padding */
+  padding-right: 212px;  /* sidebar-second fullwidth + CC padding */
+  }
+
+.hg-container .column {
+  position: relative;
+  float: left;
+  padding: 10px;
+  }
+
+header,
+#primary-navigation,
+#content-area,
+footer {
+  clear:both;
+  }
+
+header,
+#content-area .column,
+#primary-navigation {
+  border: none; /* If borders we'd need to add borders to the 'main padding' below */
+  background: #fff;
+  }
+
+.hg-container .hg-main {
+  padding: 10px;         /* content-main padding */
+  width: 100%;           /* A fluid main content area */
+  border: none;          /* If we had borders we would add them to the 'content-main padding' below */
+  }
+
+.hg-container .hg-secondary {
+  width: 225px;          /* sidebar-first width */
+  padding: 10px;         /* sidebar-first padding */
+  left: -265px;          /* sidebar-first fullwidth (width + padding + borders) + content-main padding */
+  margin-left: -100%;
+  }
+
+.hg-container .hg-tertiary {
+  width: 170px;          /* sidebar-second width */
+  padding: 10px;         /* sidebar-second padding */
+  margin-right: -230px;  /* sidebar-second fullwidth (width + padding + borders) + content-main padding */
+  }
+
+body.sidebar-second #content-area .hg-container,
+body.header-main-tertiary header #header .hg-container {
+   padding-left: 0;     /* If only the second sidebar, no need for left padding */
+   }
+
+body.sidebar-first #content-area .hg-container,
+body.header-main-secondary header #header .hg-container {
+  padding-right: 0;  /* If only the first sidebar, only content-main padding */
+  }
+
+body.no-sidebars #content-area .hg-container,
+body.header-main-only header #header .hg-container {
+  padding: 0;          /* If no sidebars, no need for any padding here */
+  }
+
+body.no-sidebars #content-area .hg-container #content-main,
+body.header-main-only header #header-area .hg-container #header-main {
+  width: auto;
+  }
+
+/* creates even height columns in the content area */
+
+.hg-container {
+  overflow: hidden;
+  }
+
+.hg-container .column {
+  padding-bottom: 20010px;  /* X + padding-bottom */
+  margin-bottom: -20000px;  /* X */
+  }
+
+/* Alterative layout - in this case for the header */
+/* We'll use a main-column-column layout using a slight variation */
+
+header .hg-container {
+  padding-left: 0;
+  }
+
+body.header-main-tertiary header .hg-container {
+  padding-right: 210px; /* total widths of the single column + main padding */
+  }
+
+body.header-main-secondary header .hg-container {
+  padding-right: 265px; /* total width of this column */
+  }
+
+body.header-main-secondary-tertiary header .hg-container {
+  padding-right: 455px; /* total widths of header columns + main padding */
+  }
+
+#header-secondary {
+  margin-left: 0;
+  margin-right: -265px; /* total width of this column + main padding */
+  left: 0;
+  }
+
+body.header-main-secondary-tertiary #header-tertiary {
+  right: -245px; /* total width of the other column */
+  }
+
+/*Style the columns*/
+
+#content-area #content-secondary,
+header #header-tertiary {
+  background-color: #E6F2E1;
+  }
+
+#content-area #content-tertiary,
+header #header-secondary {
+  background-color: #D6F9CA;
+  }
+
+/* OTHER LAYOUT STUFF */
+
+#content-area #content {
+  padding: 20px; /*This has no effect on the holygrail layout stuff */
+  }
+
+#primary-navigation,
+#site-meta,
+#site-meta.with-logo,
+.sidebar section,
+.sidebar nav,
+footer {
+  padding: 7px;
+  }
+
+#primary-navigation {
+  background: #9B9B9B;
+  }
+
+.sidebar section {
+  margin-bottom: 1.571em;
+  clear:both;
+  padding: 0.625em;
+  }
+
+footer {
+  position: relative;
+  }
+
+.node-teaser {
+  padding-top: .5em;
+  padding-bottom: 0.938em;
+  margin-bottom: 1.875em;
+  padding-left:0.188em;
+  padding-right:0.188em;
+  clear:both;
+  position: relative;
+  }
+
+/* VIEWS */
+
+.views-row {
+  margin-bottom: 1.5em;
+  clear:both;
+  }
+
+/* MESSAGES */
+
+div.messages {
+  background:#BBDDFF;
+  border:1px solid #AACCEE;
+  color:#003366;
+  margin:0 0 10px;
+  padding:9px;
+  clear:both;
+  }
+
+div.status {
+  background:#CCFF88;
+  border:1px solid #BBEE77;
+  color:#336600;
+  margin:0 0 10px;
+  padding:9px;
+  }
+
+div.warning {
+  background: #FFEE66;
+  border:1px solid #EEDD55;
+  color:#884400;
+  margin:0 0 10px;
+  padding:9px;
+  }
+
+div.error {
+  background:#EE6633;
+  border:1px solid #DD5522;
+  color:#FFFFFF;
+  margin:0 0 10px;
+  padding:9px;
+  }
+
+/* CLEAR FIX */
+/* (As many Drupal themers use 'clear-block', we add both classes) */
+
+.clearfix:after,
+.clear-block:after {
+  content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+  }
+
+.clearfix,
+.clear-block {
+	display: inline-block;
+  }
+
+html[xmlns] .clearfix,
+html[xmlns] .clear-block {
+	display: block;
+  }
