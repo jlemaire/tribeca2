@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * @file
  * Drupal site-specific configuration file.
@@ -141,7 +142,7 @@ $update_free_access = FALSE;
  * It is not allowed to have a trailing slash; Drupal will add it
  * for you.
  */
-# $base_url = 'http://www.example.com';  // NO trailing slash!
+$base_url = 'http://tribeca';  // NO trailing slash!
 
 /**
  * PHP settings:
@@ -166,6 +167,14 @@ ini_set('session.use_only_cookies', 1);
 ini_set('session.use_trans_sid',    0);
 ini_set('url_rewriter.tags',        '');
 
+
+/**
+ * Add the domain module setup routine.
+ */
+include 'C:\xampp\htdocs\tribeca\sites\all\modules\domain\settings.inc';
+
+
+
 /**
  * If you encounter a situation where users post a large amount of text, and
  * the result is stripped out upon viewing but can still be edited, Drupal's
@@ -184,9 +193,10 @@ ini_set('url_rewriter.tags',        '');
  * (see comment in .htaccess), or uncomment the line below and specify their
  * shared base domain. Doing so assures that users remain logged in as they
  * cross between your various domains.
+  $cookie_domain = '.example.com';
  */
-# $cookie_domain = 'example.com';
-
+ #$cookie_domain = '.tribeca.au';
+ 
 /**
  * Variable overrides:
  *
@@ -243,6 +253,7 @@ ini_set('url_rewriter.tags',        '');
 #   'reverse_proxy_addresses' => array('a.b.c.d', ...),
 # );
 
+
 /**
  * String overrides:
  *
@@ -255,4 +266,4 @@ ini_set('url_rewriter.tags',        '');
 # $conf['locale_custom_strings_en'] = array(
 #   'forum'      => 'Discussion board',
 #   '@count min' => '@count minutes',
-# );
+#);
